@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style type="text/css">
+      html, body, #map-canvas { height: 100%; margin: 0; padding: 0;}
+    </style>
+    <style type="text/css">
+   .labels {
+     color: red;
+     background-color: white;
+     font-family: "Lucida Grande", "Arial", sans-serif;
+     font-size: 10px;
+     font-weight: bold;
+     text-align: center;
+     width: 40px;
+     border: 2px solid black;
+     white-space: nowrap;
+   }
+ </style>
+    <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOQ5g1OtfZ831z4ZD3fMIKCF585-Gykkw">
+    </script>
+    <script type="text/javascript">
+    function initialize(){
+      var myLatlng = new google.maps.LatLng(36.595513, -105.453878);
+      
+  var mapOptions = {
+    zoom: 11,
+    center: myLatlng,
+    mapTypeId: google.maps.MapTypeId.HYBRID
+  };
+
+  var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+  var contentString = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading">Taos Ski Valley</h1>'+
+      '<div id="bodyContent">'+
+      '<p><b>Taos, New Mexico, USA. Latitude/Longitude:16.573245, 80.355902; ECE536_Nunna</b>' +
+      '<br/>It is one of my favourite places. Taos Ski Valley is a village and alpine ski resort.'+
+      ' The village was originally settled by a group of miners in the 1800s, but in 1955 Ernie and Rhoda Blake founded the area as a ski mountain.'+
+      'This also a good place for camping and hiking. This is a beautiful place and perfect for vacation.</p> '+
+      
+      
+      '</div>'+
+      '</div>';
+
+  var infowindow = new google.maps.InfoWindow({
+      content: contentString
+  });
+
+
+     
+  var marker = new google.maps.Marker({
+      position: myLatlng,
+      map: map,
+      title: 'Taos Ski Valley'
+  });
+  google.maps.event.addListener(marker, 'click', function() {
+    infowindow.open(map,marker);
+  });
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+  </head>
+  <body>
+<div id="map-canvas"></div>
+  </body>
+</html>

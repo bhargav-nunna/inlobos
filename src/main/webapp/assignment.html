@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style type="text/css">
+      html, body, #map-canvas { height: 100%; margin: 0; padding: 0;}
+    </style>
+    <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOQ5g1OtfZ831z4ZD3fMIKCF585-Gykkw">
+    </script>
+    <script type="text/javascript">
+    function initialize(){
+      var myLatlng = new google.maps.LatLng(16.573245, 80.355902);
+  var mapOptions = {
+    zoom: 11,
+    center: myLatlng,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+
+  var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+  var contentString = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading">Amaravathi</h1>'+
+      '<div id="bodyContent">'+
+      '<p><b>Amaravathi, Andhra Pradesh, India. Latitude/Longitude:16.573245, 80.355902; ECE536_Nunna</b>, '+
+      '<br/>This is my home town.' +
+      'Its is one of the heritage places of India. It has a history which dates back to 200-100 BC. It was the capital of Satavahanas who ruled from 2nd century BC to 3rd century BC.Lord Buddha stayed here and preached for sometime. Chinese traveller and Buddhist monk Hiuen Tsang (Xuanzang) visited Amaravati in 640 CE, stayed for sometime and studied "Abhidhammapitakam". Xuanzang wrote a glorious account of the place, Viharas and monasteries that existed The Amaravathi Museum is a must see place in this town. River "Krishna" passes to the east of the town.</p> '+
+      
+      
+      '</div>'+
+      '</div>';
+
+  var infowindow = new google.maps.InfoWindow({
+      content: contentString
+  });
+
+  var marker = new google.maps.Marker({
+      position: myLatlng,
+      map: map,
+      title: 'Amaravathi'
+  });
+  google.maps.event.addListener(marker, 'click', function() {
+    infowindow.open(map,marker);
+  });
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+  </head>
+  <body>
+<div id="map-canvas"></div>
+  </body>
+</html>

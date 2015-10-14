@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>#inlobos</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="//koding.com/hello/css/style.css">
+<!--[if IE]>
+  <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js">
+    </script>
+     <script type="text/javascript" src="./instafeed-master/instafeed.js-master/instafeed.min.js">
+     </script>
+</head>
+<body class="php" onload="getimage('inlobos')">
+<div id="container">
+  <div id="main" role="main" class="hellobox">
+    <header>Bhargav Nunna</header>
+    <h1>#inlobos</h1>
+    <h3 style="color:#FFF">This is a collection of pictures of University of New Mexico(UNM) posted on Instagram with tag '#inlobos'. <br/>Click a picture of your favoutite place or anything in the University on your phone and post it on Instagram with tag '#inlobos' and see your picture here. Go Lobos!!</h3>
+    <h3 style="color:#FFF"><a href='./index.html'>Home</a></h3>
+  </div>
+    <pre>Developed as part of assignment work for course ECE536 Spring 2015.<br/>By Veera Nunna <br/><br/>Click on any picture to see the person who posted the picture.</pre>
+    
+  <pre><div id="instafeed"></div></pre>
+
+<script type="text/javascript">
+function getimage(tagname){
+    var feed = new Instafeed({
+        get: 'tagged',
+        tagName: tagname,
+        clientId: '7db162c1ae6b4e1c88793d5b783162ef',
+        template: '<a href="{{link}}"><img src="{{image}}"/></a>&nbsp;',
+        useHttp: true
+    });
+    feed.run();
+  }
+</script>
+  <footer>
+
+ </footer>
+</div>
+</body>
+</html>
